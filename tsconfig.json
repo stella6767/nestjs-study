@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "commonjs", // 트랜스파일한 결과물이 어떤 모듈 방식을 사용할 것인가?
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "es2017",// 어떤 버전으로 트랜스파일? (나중에 build시에는 모듈 번들러로 변환해줘야겠죠)
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",

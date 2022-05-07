@@ -1,18 +1,42 @@
-import { Controller, Get, HttpCode, Req, RequestMapping, RequestMethod, Res } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpCode, HttpException,
+  HttpStatus,
+  Redirect,
+  Req,
+  RequestMapping,
+  RequestMethod,
+  Res,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request, Response } from 'express';
 import { Observable, of } from 'rxjs';
+import { BoardsService } from './service/boards.service';
 
 
 @Controller("main")
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService,
+              private readonly boardsService: BoardsService) {}
 
+
+  @Get('/exception')
+  async throwException() {
+    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+  }
 
 
   @Get('/async')
   async findAll(): Promise<any[]> {
     return [];
+  }
+
+  @Get('/boardtest')
+  boardtest(): Array<string> {
+
+    let boards = this.boardsService.getBoards();
+    return boards;
   }
 
   // @Get()
@@ -24,10 +48,13 @@ export class AppController {
   @Get('/')
   getHello(@Req() request: Request): string {
     //return this.appService.getHello();
-    console.log("request", request)
+    //console.log("request", request)
 
     return 'hello!!';
   }
+
+  @Get('/redirect')
+  @Redirect('https://nestjs.com', 301)
 
 
   /**

@@ -9,6 +9,8 @@ export class CreateBoardDto {
   }
 
 
+
+
   get title(): string {
     return this._title;
   }
