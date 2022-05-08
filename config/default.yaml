@@ -3,5 +3,9 @@ server:
 
 db:
   type: 'mysql'
+  host: localhost
+  username: root
+  password: Stella@6767
   port: 3306
-  database: 'nest-board'
+  database: 'nestboard'
+  synchronize: true
