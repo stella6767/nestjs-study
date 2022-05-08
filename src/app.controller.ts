@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request, Response } from 'express';
-import { Observable, of } from 'rxjs';
 import { BoardsService } from './service/boards.service';
 
 

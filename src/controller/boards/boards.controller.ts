@@ -1,9 +1,9 @@
 import { Controller, Get, Param, ParseIntPipe, UseInterceptors } from '@nestjs/common';
 import { BoardsService } from '../../service/boards.service';
-import { LoggingInterceptor } from '../../interceptor/logging.interceptor';
+//import { LoggingInterceptor } from '../../interceptor/logging.interceptor';
 
 
-@UseInterceptors(new LoggingInterceptor())
+//@UseInterceptors(new LoggingInterceptor())
 @Controller('boards')
 export class BoardsController {
 
